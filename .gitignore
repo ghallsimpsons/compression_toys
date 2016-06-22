@@ -27,3 +27,9 @@
 *.exe
 *.out
 *.app
+
+# Compression testing
+*.csv
+*.xz
+*.flac
+*.bin
