@@ -1,3 +1,7 @@
+#include <stdlib.h>
+
+#define test_type(T, elems, mean, stddev) (create_test_files<T>(elems, mean, stddev, #T))
+
 template <typename T> void create_test_files_from_arr(T *arr, size_t elems);
 
 template <typename T> void assign_bit(T *in_ptr, T *out_ptr,

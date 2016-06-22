@@ -33,3 +33,6 @@
 *.xz
 *.flac
 *.bin
+
+# Test Binaries
+*_test

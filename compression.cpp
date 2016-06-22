@@ -126,6 +126,24 @@ create_test_files_from_arr(T *arr, size_t elems)
 void
 _register_types(void)
 {
+	/* Hack to prevent execution of any called functions */
+	int j = 1;
+	if (j)
+		exit(1);
+
 	float *f;
+	int *i;
+	double *d;
+	long *l;
+	const char *str;
+
 	create_test_files_from_arr(f, (size_t) 0);
+	create_test_files_from_arr(i, (size_t) 0);
+	create_test_files_from_arr(d, (size_t) 0);
+	create_test_files_from_arr(l, (size_t) 0);
+
+	create_test_files<int>(size_t (0), 0.0, 0.0, str);
+	create_test_files<float>(size_t (0), 0.0, 0.0, str);
+	create_test_files<double>(size_t (0), 0.0, 0.0, str);
+	create_test_files<long>(size_t (0), 0.0, 0.0, str);
 }

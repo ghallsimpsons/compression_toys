@@ -1,8 +1,6 @@
 #include "compression.h"
 #include <stdlib.h>
 
-#define test_type(T, elems, mean, stddev) (create_test_files<T>(elems, mean, stddev, #T))
-
 int
 main()
 {
