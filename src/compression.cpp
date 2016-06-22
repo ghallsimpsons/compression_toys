@@ -18,6 +18,11 @@ template <typename T>
 void
 assign_bit(T *in_ptr, T *out_ptr, size_t elem_index_out, size_t sig_bit, size_t out_bit)
 {
+	/*
+	 * Part of the transpose operation. Take the (sig_bit) bit of the (out_bit)
+	 * element of (in_ptr), and move it to the (out_bit) bit of the (sig_bit)
+	 * block of (out_ptr), at index elem_index_out. See README for explanation.
+	 */
 	container<T> in, out;
 	in.native = in_ptr[out_bit];
 	out.native = out_ptr[elem_index_out];
@@ -39,6 +44,10 @@ template <typename T>
 void
 transpose(T *data_in, T *data_out, size_t len)
 {
+	/*
+	 * Bitwise transpose elements of type T such that the n-th significant bits
+	 * are stored contiguously in memory.
+	 */
 	size_t sig_bit, out_bit, sigbit_start, elem_index_out, bits_per_elem;
 	bits_per_elem = sizeof(T)*CHAR_BIT;
 
