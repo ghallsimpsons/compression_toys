@@ -4,7 +4,7 @@
 #include <vector>
 #include <cstdlib>
 
-#include "loadcsv.h"
+#include "bitmask.h"
 #include "compression.h"
 
 using namespace std;

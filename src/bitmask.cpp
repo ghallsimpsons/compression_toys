@@ -1,4 +1,4 @@
-#include "loadcsv.h"
+#include "bitmask.h"
 #include <limits.h>
 
 #define BIT(x) ((unsigned long long) 1 << x)
@@ -13,6 +13,9 @@ union float_view {
 void
 mask(float *f, size_t bits)
 {
+	/*
+	 * Mask the last (bits) bits of a float value.
+	 */
 	union float_view fv;
 	fv.f = *f;
 
