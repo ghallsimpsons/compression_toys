@@ -4,7 +4,7 @@
 #include <limits.h>
 #include <random>
 
-#include "compression.h"
+#include "transpose.h"
 
 #define BIT(x) ((unsigned long long) 1 << x)
 

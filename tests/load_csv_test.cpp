@@ -5,7 +5,7 @@
 #include <cstdlib>
 
 #include "bitmask.h"
-#include "compression.h"
+#include "transpose.h"
 
 using namespace std;
 

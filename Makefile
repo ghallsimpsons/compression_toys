@@ -6,21 +6,21 @@ CC=g++
 CC_LIB_OPT=-c --shared
 CC_OPT=--std=c++11 -fPIC -I${INCLUDE_DIR}
 
-all: tests clean
+all: transpose_test load_csv_test clean
 
-compression: compression.o;
-
-compression.o:
-	${CC} ${CC_OPT} ${CC_LIB_OPT} ${SOURCE_DIR}/compression.cpp -o compression.o
-
-bitmask: bitmask.o;
+transpose.o:
+	${CC} ${CC_OPT} ${CC_LIB_OPT} ${SOURCE_DIR}/transpose.cpp -o transpose.o
 
 bitmask.o:
 	${CC} ${CC_OPT} ${CC_LIB_OPT} ${SOURCE_DIR}/bitmask.cpp -o bitmask.o
 
-tests: compression bitmask
-	${CC} ${CC_OPT} ${TESTS_DIR}/load_csv_test.cpp -o loadcsv_test compression.o bitmask.o
-	${CC} ${CC_OPT} ${TESTS_DIR}/compression_test.cpp -o compression_test compression.o
+tests: transpose_test load_csv_test;
+
+transpose_test: transpose.o
+	${CC} ${CC_OPT} ${TESTS_DIR}/transpose_test.cpp transpose.o -o transpose_test
+
+load_csv_test: transpose.o bitmask.o
+	${CC} ${CC_OPT} ${TESTS_DIR}/load_csv_test.cpp transpose.o bitmask.o -o load_csv_test
 
 clean:
 	rm -f *.o *.so

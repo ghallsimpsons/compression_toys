@@ -1,4 +1,4 @@
-#include "compression.h"
+#include "transpose.h"
 #include <stdlib.h>
 
 int
