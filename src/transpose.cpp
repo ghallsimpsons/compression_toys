@@ -82,7 +82,7 @@ create_test_files(size_t elems, double mean, double stddev, const char *typestr)
 	default_random_engine rng;
 	normal_distribution<double> gaussian(mean, stddev);
 	for (i=0; i<elems; i++){
-		in[i] = (T) gaussian(rng)+(i*0.01);
+		in[i] = (T) gaussian(rng);
 	}
 
 	transpose(in, out, elems);
