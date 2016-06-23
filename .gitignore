@@ -37,3 +37,6 @@
 
 # Test Binaries
 *_test
+
+# Compiled Python
+*.pyc
